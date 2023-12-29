@@ -9,7 +9,7 @@ lua54 'yes'
 
 shared_scripts {
     'shared/config.lua',
-    '@ox_lib/init.lua',
+    --'@ox_lib/init.lua', -- UNMARK IT HERE, IF YOU WANT USE OXLIB NOTIFICATION
 }
 
 client_scripts {
