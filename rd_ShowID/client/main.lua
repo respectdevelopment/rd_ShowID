@@ -15,7 +15,7 @@ RegisterNetEvent("RespectDevelopment:ReciveUserData", function(result)
             type = "inform"
         })
     elseif rd.ShowId.Notification == "CUSTOM" then
-        print("[WARNING] Set your own notification in client/main.lia at line 16.") 
+        print("[WARNING] Set your own notification in client/main.lia at line 18.") 
         -- Here you set your own notification!
         -- For text set variable "result" btw without ""! :D
     end
