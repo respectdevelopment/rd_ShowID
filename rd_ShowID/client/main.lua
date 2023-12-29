@@ -1,10 +1,25 @@
-if rd.ShowId.Notification == "ESX" then
-    ESX = exports["es_extended"]:getSharedObject()
-end
+RegisterCommand(rd.ShowId.CommandName, function()
+    Wait(250)
+    local player = GetPlayerServerId(PlayerId())
+    local template = rd.ShowId.Message
 
-RegisterNetEvent("RespectDevelopment:ReciveUserData", function(result)
+    local replacements = {
+        ["{ID}"] = player,
+    }
 
+    local pattern = "{(.-)}"
+    local result = template:gsub(pattern, function(key)
+        return replacements['{' .. key .. '}'] or key
+    end)
+
+    Notify(result)
+end)
+
+
+function Notify(result)
+    Wait(250)
     if rd.ShowId.Notification == "ESX" then
+        ESX = exports["es_extended"]:getSharedObject()
         ESX.ShowNotification(result)
     elseif rd.ShowId.Notification == "OKOK" then
         exports['okokNotify']:Alert('ID', result, 3000, 'info', playSound)
@@ -15,15 +30,11 @@ RegisterNetEvent("RespectDevelopment:ReciveUserData", function(result)
             type = "inform"
         })
     elseif rd.ShowId.Notification == "CUSTOM" then
-        print("[WARNING] Set your own notification in client/main.lia at line 18.") 
+        print("[WARNING] Set your own notification in client/main.lia at line 35.") 
         -- Here you set your own notification!
         -- For text set variable "result" btw without ""! :D
     end
-end)
-
-RegisterCommand(rd.ShowId.CommandName, function (ShowId,rawShowId)
-    TriggerServerEvent('RespectDevelopment:GetUserData')
-end)
+end
 
 
 Citizen.CreateThread(function()
@@ -32,6 +43,7 @@ Citizen.CreateThread(function()
 
     TriggerEvent('chat:addSuggestion', '/' ..command.. '', '' ..description.. '')
 end)
+
 
 
 
