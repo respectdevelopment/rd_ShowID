@@ -1,5 +1,5 @@
 RegisterNetEvent('RespectDevelopment:GetUserData', function()
-    local playerName = GetPlayerName(source)
+    local Player = GetPlayerName(source)
     local template = rd.ShowId.Message
 
     local replacements = {
