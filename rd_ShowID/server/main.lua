@@ -1,7 +1,5 @@
 RegisterNetEvent('RespectDevelopment:GetUserData', function()
-    local activePlayers = GetPlayers()
     local playerName = GetPlayerName(source)
-    local maxServerCapacity = GetConvarInt("sv_maxClients", 48)
     local template = rd.ShowId.Message
 
     local replacements = {
