@@ -1,5 +1,5 @@
 RegisterCommand(rd.ShowId.CommandName, function()
-    Wait(250)
+    Wait(rd.waittime)
     local player = GetPlayerServerId(PlayerId())
     local template = rd.ShowId.Message
 

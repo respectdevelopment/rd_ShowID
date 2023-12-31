@@ -1,5 +1,7 @@
 rd = {}
 
+rd.waittime = 1000 -- Keep 1000 for best optimalization.
+
 rd.ShowId = {
 
     CommandName = "id",
