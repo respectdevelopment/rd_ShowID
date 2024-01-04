@@ -1,4 +1,4 @@
--- {{FX INFORMATION}} --
+-- {{FX Information}} --
 fx_version 'cerulean'
 game 'gta5'
 
